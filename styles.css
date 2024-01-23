@@ -2,7 +2,7 @@
   /* Color Palette */
   /* Primary */
   --spring-marsh: hsl(75, 94%, 57%);
-  
+
   /* Neutral */
   --aphrodites-pearls: hsl(0, 0%, 100%);
   --carbon: hsl(0, 0%, 20%);
@@ -13,33 +13,21 @@
   /* Typography */
   --body-font-size-default: 1.4rem;
   --display-font-size-large: 2.4rem;
+  --attribution-font-size: 1.1rem;
 
   --body-font-family-default: 'Inter', serif;
-
-  /* --font-size-default: 1.6rem;
-  --font-size-medium: 2rem;
-  
-  --font-size-extra-large: 3.6rem; */
-  --font-size-attribution: 1.1rem;
-
-  /* --font-size-extra-large-desktop: 4rem; */
 
   --font-weight-regular: 400;
   --font-weight-semi-bold: 600;
   --font-weight-bold: 700;
 
-  --gutter-default: 2.4rem;
+  --gutter-mobile-default: 2.4rem;
+  --gutter-desktop-default: 4rem;
   --gutter-list-small: 0.8rem;
   --gutter-list-medium: 1.2rem;
   --gutter-list-default: 1.6rem;
 
   --border-radius-default: 1.2rem;
-  /* --gutter-desktop: 2.4rem; */
-
-  /* --margin-mobile: 4rem; */
-
-  /* --grid-gap-default-mobile: 3.2rem;
-  --grid-gap-default-tablet: 4rem; */
 }
 
 /* Resets */
@@ -78,7 +66,7 @@ picture {
 body {
   width: 100vw;
   min-height: 100vh;
-  padding: auto var(--gutter-default);
+  padding: auto var(--gutter-mobile-default);
   font-size: var(--body-font-size-default);
   font-family: var(--body-font-family-default);
   background: var(--sooty);
@@ -116,20 +104,23 @@ h2 {
 }
 
 p {
-  /* color: var(--aphrodites-pearls); */
   font-weight: var(--font-weight-regular);
   font-size: var(--body-font-size-default);
 }
 
 header {
-  gap: var(--gutter-default);
+  gap: var(--gutter-mobile-default);
+}
+
+a {
+  cursor: pointer;
 }
 
 .profile {
   background: var(--umbra);
   width: 32.7rem;
-  gap: var(--gutter-default);
-  padding: var(--gutter-default);
+  gap: var(--gutter-mobile-default);
+  padding: var(--gutter-mobile-default);
   border-radius: var(--border-radius-default);
 }
 
@@ -159,6 +150,12 @@ li {
   background: var(--carbon);
 }
 
+li:hover {
+  background: var(--spring-marsh);
+  transition: all 750ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+}
+
 li a,
 li a:visited,
 li a:active {
@@ -168,17 +165,35 @@ li a:active {
   font-weight: var(--font-weight-bold);
 }
 
+li:hover a,
+li:hover a:visited,
+li:hover a:active {
+  transition: all 500ms ease-in;
+  color: var(--sooty);
+}
+
 footer {
   position: fixed;
   bottom: 0;
 }
 
 .attribution {
-  font-size: var(--font-size-attribution);
+  font-size: var(  --attribution-font-size);
   text-align: center;
 }
 .attribution a,
 .attribution a:visited,
 .attribution a:active {
-  color: var(--blueberry);
+  color: var(--spring-marsh);
+}
+
+/* media queries */
+
+/* tablet/desktop*/
+@media screen and (min-width: 37.5em) {
+  .profile {
+    width: 38.4rem;
+    gap: var(--gutter-mobile-default);
+    padding: var(--gutter-desktop-default);
+  }
 }
