@@ -1,35 +1,3 @@
-:root {
-  /* Color Palette */
-  /* Primary */
-  --spring-marsh: hsl(75, 94%, 57%);
-
-  /* Neutral */
-  --aphrodites-pearls: hsl(0, 0%, 100%);
-  --carbon: hsl(0, 0%, 20%);
-  --umbra: hsl(0, 0%, 12%);
-  --sooty: hsl(0, 0%, 8%);
-  --blueberry: hsl(228, 45%, 44%);
-
-  /* Typography */
-  --body-font-size-default: 1.4rem;
-  --display-font-size-large: 2.4rem;
-  --attribution-font-size: 1.1rem;
-
-  --body-font-family-default: 'Inter', serif;
-
-  --font-weight-regular: 400;
-  --font-weight-semi-bold: 600;
-  --font-weight-bold: 700;
-
-  --gutter-mobile-default: 2.4rem;
-  --gutter-desktop-default: 4rem;
-  --gutter-list-small: 0.8rem;
-  --gutter-list-medium: 1.2rem;
-  --gutter-list-default: 1.6rem;
-
-  --border-radius-default: 1.2rem;
-}
-
 /* Resets */
 *,
 *::before,
@@ -62,6 +30,36 @@ picture {
   src: url('/assets/fonts/Inter-VariableFont_slnt\,wght.ttf') format('truetype');
 }
 
+/* Variables */
+:root {
+  /* Color Palette */
+  --spring-marsh: hsl(75, 94%, 57%);
+  --aphrodites-pearls: hsl(0, 0%, 100%);
+  --carbon: hsl(0, 0%, 20%);
+  --umbra: hsl(0, 0%, 12%);
+  --sooty: hsl(0, 0%, 8%);
+  --blueberry: hsl(228, 45%, 44%);
+
+  /* Typography */
+  --body-font-family-default: 'Inter', serif;
+  --body-font-size-default: 1.4rem;
+  --display-font-size-large: 2.4rem;
+  --attribution-font-size: 1.1rem;
+
+  --font-weight-regular: 400;
+  --font-weight-semi-bold: 600;
+  --font-weight-bold: 700;
+
+  --gutter-mobile-default: 2.4rem;
+  --gutter-desktop-default: 4rem;
+  --gutter-list-small: 0.8rem;
+  --gutter-list-medium: 1.2rem;
+  --gutter-list-default: 1.6rem;
+
+  --border-radius-default: 1.2rem;
+  --border-radius-circle: 50%;
+}
+
 /* global styles */
 body {
   width: 100vw;
@@ -79,7 +77,6 @@ p,
 a {
   line-height: 150%;
   text-align: center;
-  color: var(--aphrodites-pearls);
 }
 
 body,
@@ -90,6 +87,10 @@ ul {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+header {
+  gap: var(--gutter-mobile-default);
 }
 
 h1 {
@@ -108,10 +109,6 @@ p {
   font-size: var(--body-font-size-default);
 }
 
-header {
-  gap: var(--gutter-mobile-default);
-}
-
 a {
   cursor: pointer;
 }
@@ -127,7 +124,7 @@ a {
 .profile__photo {
   width: 8.8rem;
   height: 8.8rem;
-  border-radius: 50%;
+  border-radius: var(--border-radius-circle);
 }
 
 ul,
@@ -161,7 +158,6 @@ li a:visited,
 li a:active {
   text-decoration: none;
   color: var(--aphrodites-pearls);
-  font-size: var(--body-font-size-default);
   font-weight: var(--font-weight-bold);
 }
 
@@ -178,7 +174,7 @@ footer {
 }
 
 .attribution {
-  font-size: var(  --attribution-font-size);
+  font-size: var(--attribution-font-size);
   text-align: center;
 }
 .attribution a,
@@ -189,11 +185,18 @@ footer {
 
 /* media queries */
 
-/* tablet/desktop*/
+/* tablet */
 @media screen and (min-width: 37.5em) {
   .profile {
     width: 38.4rem;
     gap: var(--gutter-mobile-default);
     padding: var(--gutter-desktop-default);
+  }
+}
+
+/* desktop */
+@media screen and (min-width: 56.25em) {
+  body {
+    padding: 11.6rem var(--gutter-mobile-default);
   }
 }
